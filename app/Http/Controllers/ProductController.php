@@ -32,7 +32,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-        //
+         $categories = Category::orderBy('name','ASC')->pluck('name','id_category');
+
+         $sellers = Seller::orderBy('name','ASC')->pluck('name','id_seller');
+        
+        return view ('products.create', compact('categories','sellers'));
     }
 
     /**
