@@ -18,9 +18,11 @@ class ProductController extends Controller
      */
     public function index()
     {
+        
         $products = Product::orderBy('id','DESC')->paginate(5);
-
+        
         return view ('products.index', compact('products'));
+        
     }
 
     /**
@@ -77,6 +79,8 @@ class ProductController extends Controller
     {
         //
     }
+
+   
 
     /**
      * Remove the specified resource from storage.
