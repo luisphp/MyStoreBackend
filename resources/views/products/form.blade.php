@@ -26,6 +26,20 @@
 	{{ Form::text('slug', null , ['class' => 'form-control', 'id'=>'slug']) }}
 </div>
 
+<!-- Precio -->
+
+<div class="form-group">
+	{{ Form::label('price', 'Precio') }}
+	{{ Form::text('price', null , ['class' => 'form-control', 'id'=>'price']) }}
+</div>
+
+<!-- Stock -->
+
+<div class="form-group">
+	{{ Form::label('stock', 'Stock') }}
+	{{ Form::text('stock', null , ['class' => 'form-control', 'id'=>'stock']) }}
+</div>
+
 
 <!-- Descripcion del Producto  -->
 <div class="form-group">
@@ -33,6 +47,18 @@
 	{{ Form::textarea('body', null , ['class' => 'form-control', 'id'=>'body', 'rows' => '4']) }}
 </div>
 
+<!-- Bullets del Producto  -->
+<div class="form-group">
+	{{ Form::label('bullets', 'Bullets del Producto') }}
+	{{ Form::textarea('bullets', null , ['class' => 'form-control', 'id'=>'bullets', 'rows' => '3']) }}
+</div>
+
+<!-- SKU -->
+
+<div class="form-group">
+	{{ Form::label('SKU', 'SKU') }}
+	{{ Form::text('SKU', null , ['class' => 'form-control ', 'id'=>'SKU']) }}
+</div>
 
 
 <!-- Status  -->
@@ -46,9 +72,10 @@
 	</label>
 </div>
 
+
 <!-- Seller -->
 <div class="form-group">
-	{{ Form::label('seller_id', 'Supplier') }}
+	{{ Form::label('seller_id', 'Seller') }}
 	{{ Form::select('seller_id', $sellers , null,['class' => 'form-control']) }}
 </div>
 

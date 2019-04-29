@@ -69,7 +69,16 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::find($id);
+
+        //En esta seccion verificamos si el post que desea editar el usuario pertene a el de lo contrario no dejamos que lo edite
+
+        $categories = Category::orderBy('name','ASC')->pluck('name','id_category');
+
+        $sellers = Seller::orderBy('name','ASC')->pluck('name','id_seller');
+
+
+        return view ('products.edit', compact('product','categories','sellers'));
     }
 
     /**
