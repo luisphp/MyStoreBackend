@@ -43,8 +43,8 @@
 
 <!-- Descripcion del Producto  -->
 <div class="form-group">
-	{{ Form::label('body', 'Cuerpo del Post') }}
-	{{ Form::textarea('body', null , ['class' => 'form-control', 'id'=>'body', 'rows' => '4']) }}
+	{{ Form::label('description', 'Descripcion') }}
+	{{ Form::textarea('description', null , ['class' => 'form-control', 'id'=>'body', 'rows' => '4']) }}
 </div>
 
 <!-- Bullets del Producto  -->
@@ -53,13 +53,21 @@
 	{{ Form::textarea('bullets', null , ['class' => 'form-control', 'id'=>'bullets', 'rows' => '3']) }}
 </div>
 
-<!-- SKU -->
 
+<!-- SKU -->
+@if(Request::url() == route('products.create')) 
 <div class="form-group">
 	{{ Form::label('SKU', 'SKU') }}
-	{{ Form::text('SKU', null , ['class' => 'form-control ', 'id'=>'SKU']) }}
+	{{ Form::text('SKU', null, ['class' => 'form-control', 'id'=>'SKU']) }}
 </div>
-
+@else
+<fieldset disabled>
+<div class="form-group">
+	{{ Form::label('SKU', 'SKU') }}
+	{{ Form::text('SKU', null, ['class' => 'form-control', 'id'=>'SKU']) }}
+</div>
+</fieldset>
+@endif
 
 <!-- Status  -->
 <div class="form-group">

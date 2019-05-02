@@ -47,7 +47,25 @@ class ProductController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //Guardamos el Producto
+        $product = Product::create($request->all());
+
+
+        //Verificamos que tenemos una imagen
+        if($request->file('photo_1')){
+
+
+            //En caso  de tenerla la guardamos en la clase Storage en la carpeta public en la carpeta image.
+            $path = Storage::disk('public')->put('image',$request->file('photo_1'));
+
+            //Actualizamos el Post que acabamos de crear
+            $post->fill(['photo_1' => asset($path)])->save();
+
+        }
+
+        
+
+        return redirect()->route('products.index')->with('info', 'Producto creado exitosamente!');
     }
 
     /**
@@ -58,7 +76,10 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        //
+        $product = Product::find($id);
+
+        return view ('products.show', compact('product'));
+
     }
 
     /**
@@ -90,7 +111,26 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        
+         $product = Product::find($id);
+
+
+        $product->fill($request->all())->save();
+
+           //Verificamos que tenemos una imagen
+        if($request->file('photo_1')){
+
+
+            //En caso  de tenerla la guardamos en la clase Storage en la carpeta public en la carpeta image.
+            $path = Storage::disk('public')->put('photo_1',$request->file('photo_1'));
+
+            //Actualizamos el Post que acabamos de crear
+            $product->fill(['photo_1' => asset($path)])->save();
+
+        }
+
+
+        return redirect()->route('products.index')->with('info', 'Producto actualizado exitosamente!');
     }
 
    
@@ -103,6 +143,13 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+         $product = Product::find($id);
+
+       
+        $name = Product::where('id', $id)->pluck('name');
+        
+        Product::find($id)->delete();
+
+        return back()->with('info', 'Producto '. $name.' eliminada correctamente' );
     }
 }
