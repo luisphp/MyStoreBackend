@@ -80,6 +80,10 @@
             @endif
 
             <div class="content">
+
+                <div class="text-center">
+                    <img src="http://localhost/MyStoreBackend/storage/app/public/MyStoreLogo.png" class="rounded" alt="..." style="width: 400px;">
+                </div>
                 <div class="title m-b-md">
                     MyStore Backend
                 </div>

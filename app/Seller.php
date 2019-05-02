@@ -13,7 +13,7 @@ class Seller extends Model
 
     }
 
-
+    protected $primaryKey = 'id_seller';
 
     //Campos protegidos
     protected $fillable = [

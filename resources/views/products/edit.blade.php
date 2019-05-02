@@ -9,7 +9,7 @@
 
 			 
 
-			{!! Form::model($product, ['route'=>['products.update',$product->id],  'method' => 'PUT', 'files' => true]) !!}
+			{!! Form::model($product, ['route'=>['products.update',$product->id_product],  'method' => 'PUT', 'files' => true]) !!}
 
 			@include('products.form')
 

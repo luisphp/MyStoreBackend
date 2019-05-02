@@ -19,7 +19,7 @@ class ProductController extends Controller
     public function index()
     {
         
-        $products = Product::orderBy('id','DESC')->paginate(5);
+        $products = Product::orderBy('id_product','DESC')->paginate(5);
         
         return view ('products.index', compact('products'));
         
@@ -146,7 +146,7 @@ class ProductController extends Controller
          $product = Product::find($id);
 
        
-        $name = Product::where('id', $id)->pluck('name');
+        $name = Product::where('id_product', $id)->pluck('name');
         
         Product::find($id)->delete();
 

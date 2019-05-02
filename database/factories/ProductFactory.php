@@ -11,7 +11,7 @@ $factory->define(App\Product::class, function (Faker $faker) {
 
     return [
         
-    	'created_by_user' => rand(1,20),
+    	'user_id' => rand(1,20),
     	'seller_id' => rand(1,20),
     	'category_id' => rand(1,20),
     	'name' => $title,

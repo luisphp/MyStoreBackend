@@ -16,7 +16,7 @@ class CreateProductsTable extends Migration
         Schema::create('products', function (Blueprint $table) {
              //Atributos principales de la tabla
 
-            $table->increments('id');
+            $table->increments('id_product');
             $table->string('name');
             $table->string('slug')->unique();
             $table->text('description');
@@ -30,9 +30,8 @@ class CreateProductsTable extends Migration
             $table->integer('stock');
 
             //Campos para relaciones
-
             $table->integer('category_id')->unsigned();
-            $table->integer('created_by_user')->unsigned();
+            $table->integer('user_id')->unsigned()->default('1');
             $table->integer('seller_id')->unsigned();
 
             //Relaciones entre tablas
@@ -40,7 +39,7 @@ class CreateProductsTable extends Migration
             $table->foreign('category_id')->references('id_category')->on('categories')
             ->onUpdate('cascade');
 
-            $table->foreign('created_by_user')->references('id_user')->on('users')
+            $table->foreign('user_id')->references('id_user')->on('users')
             ->onUpdate('cascade');
 
             $table->foreign('seller_id')->references('id_seller')->on('sellers')
