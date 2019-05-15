@@ -22,3 +22,11 @@ Route::resource('sellers', 'SellerController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//Test para landing page del FrontEnd
+
+
+
+Route::get('/landing', function () {
+    return view('layouts.landing');
+});
