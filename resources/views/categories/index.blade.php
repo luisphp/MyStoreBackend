@@ -6,35 +6,28 @@
 
 		<div class="col-md-12 col-md-offset-2">
 
-		<h2> Products <span class="pull-right"> <a role="button" class="btn btn-primary float-right" href="{{ route('products.create') }}"> Create </a> </span> </h2>
+		<h2> Categories <span class="pull-right"> <a role="button" class="btn btn-primary float-right" href="{{ route('categories.create') }}"> Create </a> </span> </h2>
 
 		<table class="table table-responsive-md" style = "margin: 30px">
 				  <thead>
 				    <tr>
-				      <th scope="col">id_product</th>
+				      <th scope="col">id_category</th>
 				      <th scope="col">Name</th>
-				      <th scope="col">Image</th>
 				      <th scope="col">Status</th>
 				      <th scope="col">Action</th>
 				    </tr>
 				  </thead>
  		<tbody>
 
-		@foreach($products as $product)
+		@foreach($categories as $category)
  
 						    <tr>
 						      
-						      <td>{{$product->id_product}}</td>
-						      <td>{{$product->name}}</td>
+						      <td>{{$category->id_category}}</td>
+						      <td>{{$category->name}}</td>
 						      <td>
 
-						      	@if($product->photo_1)
-						      	<img src={{$product->photo_1}} class="rounded mx-auto d-block" alt="photo_1" style="width: 50px"></td>
-						      	@else
-						      	<img src="https://png.pngtree.com/svg/20160803/b3b303c89e.svg" class="rounded mx-auto d-block" alt="photo_1" style="width: 50px"></td>
-						      	@endif
-
-						      @if($product->status == 1)
+						      @if($category->status == 1)
 
 						      <td><h5> <span class="badge badge-success">Active</span></h5></td>
 						      
@@ -50,13 +43,13 @@
 						      <td>
 						      	
 						      	<div class="btn-group">
-						      		<a href="{{route('products.show',$product->id_product)}}" class="btn btn-sm btn-light"> Ver </a>
+						      		<a href="{{route('categories.show',$category->id_category)}}" class="btn btn-sm btn-light"> Ver </a>
 
-						      		<a href="{{route('products.edit',$product->id_product)}}" class="btn btn-sm btn-primary"> Edit </a>
+						      		<a href="{{route('categories.edit',$category->id_category)}}" class="btn btn-sm btn-primary"> Edit </a>
 
 						      		
 						      	    	
-									 {!! Form::open(['route' => ['products.destroy', $product->id_product],'method'=>'DELETE']) !!}
+									 {!! Form::open(['route' => ['categories.destroy', $category->id_category],'method'=>'DELETE']) !!}
 
 									 <button class="btn btn-sm btn-danger">Delete</button>
 
@@ -78,7 +71,7 @@
 		</div>
 		<div class="mx-auto d-block">
 
-			{{$products->render()}}
+			{{$categories->render()}}
 
 		</div>
 	</div>

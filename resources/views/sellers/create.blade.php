@@ -5,14 +5,18 @@
 	<div class="container">
 		<div class="col-md-12">
 
-			<h2 > Crear Post </h2>
+			<h2 > Crear Seller </h2>
 
-			{!! Form::open(['route'=>'products.store', 'files' => true]) !!}
+			<div class="card">
 
-			@include('products.form')
+			{!! Form::open(['route'=>'sellers.store', 'files' => true]) !!}
+
+			@include('sellers.form')
 
 
 			{!! Form::close() !!}
+
+			</div>
 
 			</div>
 	</div>

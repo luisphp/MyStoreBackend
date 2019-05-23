@@ -6,79 +6,128 @@
 		
 		<div class="col-md-12 col-md-offset-2">
 
-			<h1> {{$product->name}} </h1>
+			<div class="row text-center">
 
+				<div class="col-lg-4 col-md-4">
+
+				<h1> {{$seller->name}} </h1>
+
+				</div>
+				<div class="col-lg-4 col-md-4">
+
+					@if($seller->status == 1)
+
+					<td><h3> <span class="badge badge-success ">Active</span></h3></td>
+							      
+
+					@else
+
+					<td><h3> <span class="badge badge-secondary">Deactivate</span></h3></td>
+							     
+
+					@endif
+
+				</div>
+				<div class="col-lg-4 col-md-4">
+
+					@if($seller->company_logo)
+					<img src={{$seller->company_logo}} class="rounded mx-auto d-block" alt="photo_1" style="width: 50px"></td>
+					@else
+					<img src="https://png.pngtree.com/svg/20160803/b3b303c89e.svg" class="rounded mx-auto d-block" alt="photo_1" style="width: 50px"></td>
+					@endif
+
+				</div>
+			</div>
 			
 			<div class="card" style="margin: 20px">
 
-				<div class="card-head" style="margin: 20px">
-
-					<strong> Categoría: </strong> 
-
-								<p>  {{$product->category->name}} </p> 
-
-								<hr>
-
-
-
-							</div>				
 
 						<div class="card-body">
 
-							@if($product->photo_1)
+							@if($seller->company_logo)
 
+								<div class="text-center">
+								  <img src="{{$seller->company_logo}}" class="rounded img-fluid" alt="...">
+								</div>
 
-								<div id="carouselExampleIndicators" class="carousel slide mx-auto d-block" style="width: 500px;" data-ride="carousel" >
-									  <ol class="carousel-indicators">
-									    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-									    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-									    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-									  </ol>
-									  <div class="carousel-inner">
-									    <div class="carousel-item active">
-									      <img src="{{$product->photo_1}}" class="rounded mx-auto d-block" alt="...">
-									    </div>
-									    <div class="carousel-item">
-									      <img src="{{$product->photo_2}}" class="rounded mx-auto d-block" alt="...">
-									    </div>
-									    <div class="carousel-item">
-									      <img src="{{$product->photo_3}}" class="rounded mx-auto d-block" alt="...">
-									    </div>
-									  </div>
-									  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-									    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-									    <span class="sr-only">Previous</span>
-									  </a>
-									  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-									    <span class="carousel-control-next-icon" aria-hidden="true"></span>
-									    <span class="sr-only">Next</span>
-									  </a>
-									</div>
+								<hr>
 
 							@endif	
-						
-									<hr>
-								<strong> Description: </strong>
 
-								<p class="card-text text-justify" style="margin: 10px"> {{$product->description}} </p>
-									<hr>
-								<strong> Bullets: </strong>
+							<div class="row">
 
-								<p>{{$product->bullets}}</p>
+							<div class="col-md-6 col-lg-6">
+
+								<strong> Slug: </strong> 
+
+								<p class="card-text text-justify" style="margin: 10px">  {{$seller->slug}} </p> 
 
 								
-					
-								<hr>
+									
+								<strong> Email: </strong>
 
-								<strong> Precio: </strong>
+								<p class="card-text text-justify" style="margin: 10px"> {{$seller->email}} </p>
+									
+								
 
-								<p>{{$product->price}}</p>
+								<strong> Commercial Name: </strong>
 
-								<hr>
+								<p>{{$seller->commercial_name}}</p>
 
-								<strong> Stock: </strong>
+								
 
-								<p>{{$product->stock}}</p>
+								<strong> Description: </strong>
+
+								<p>{{$seller->description}}</p>
+
+								
+
+								<strong> Rif: </strong>
+
+								<p>{{$seller->rif}}</p>
+
+								
+
+							</div>
+
+								<div class="col-md-6 col-lg-6">
+
+								<strong> Address: </strong>
+
+								<p>{{$seller->address}}</p>
+
+								
+
+								<strong> Manager: </strong>
+
+								<p>{{$seller->manager}}</p>
+
+								
+
+								<strong> Phone Number: </strong>
+
+								<p>{{$seller->phone_number}}</p>
+
+								
+
+								<strong> Bank Account: </strong>
+
+								<p>{{$seller->bank_account}}</p>
+
+								
+
+								<strong> Created at: </strong>
+
+								<p>{{$seller->created_at}}</p>
+
+								
+
+								<strong> Updated at: </strong>
+
+								<p>{{$seller->updated_at}}</p>
+
+								</div>
+								</div>
 
 						</div>
 

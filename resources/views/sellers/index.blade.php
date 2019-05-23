@@ -6,42 +6,48 @@
 
 		<div class="col-md-12 col-md-offset-2">
 
-		<h2> Products <span class="pull-right"> <a role="button" class="btn btn-primary float-right" href="{{ route('products.create') }}"> Create </a> </span> </h2>
+		<h2> Seller <span class="pull-right"> <a role="button" class="btn btn-primary float-right" href="{{ route('sellers.create') }}"> Create </a> </span> </h2>
 
-		<table class="table table-responsive-md" style = "margin: 30px">
+		<div class="card">
+
+				<table class="table table-responsive-md text-center table-hover">
+				
+				
 				  <thead>
 				    <tr>
-				      <th scope="col">id_product</th>
+				      <th scope="col">id_seller</th>
 				      <th scope="col">Name</th>
-				      <th scope="col">Image</th>
+				      <th scope="col">Logo</th>
 				      <th scope="col">Status</th>
 				      <th scope="col">Action</th>
 				    </tr>
 				  </thead>
+				  
+
  		<tbody>
 
-		@foreach($products as $product)
+		@foreach($sellers as $seller)
  
 						    <tr>
 						      
-						      <td>{{$product->id_product}}</td>
-						      <td>{{$product->name}}</td>
+						      <td>{{$seller->id_seller}}</td>
+						      <td>{{$seller->name}}</td>
 						      <td>
 
-						      	@if($product->photo_1)
-						      	<img src={{$product->photo_1}} class="rounded mx-auto d-block" alt="photo_1" style="width: 50px"></td>
+						      	@if($seller->company_logo)
+						      	<img src={{$seller->company_logo}} class="rounded mx-auto d-block" alt="photo_1" style="width: 50px"></td>
 						      	@else
-						      	<img src="https://png.pngtree.com/svg/20160803/b3b303c89e.svg" class="rounded mx-auto d-block" alt="photo_1" style="width: 50px"></td>
+						      	<img src="https://askdeed.com/uploads/logos/default-logo.png" class="rounded mx-auto d-block" alt="photo_1" style="width: 50px"></td>
 						      	@endif
 
-						      @if($product->status == 1)
+						      @if($seller->status == 1)
 
-						      <td><h5> <span class="badge badge-success">Active</span></h5></td>
+						      <td class="align-middle"><h5> <span class="badge badge-success">Activate</span></h5></td>
 						      
 
 						      @else
 
-						      <td><h5> <span class="badge badge-secondary">Off</span></h5></td>
+						      <td class="align-middle"><h5> <span class="badge badge-secondary">Deactivate</span></h5></td>
 						     
 
 						      @endif
@@ -50,13 +56,13 @@
 						      <td>
 						      	
 						      	<div class="btn-group">
-						      		<a href="{{route('products.show',$product->id_product)}}" class="btn btn-sm btn-light"> Ver </a>
+						      		<a href="{{route('sellers.show',$seller->id_seller)}}" class="btn btn-sm btn-light"> Ver </a>
 
-						      		<a href="{{route('products.edit',$product->id_product)}}" class="btn btn-sm btn-primary"> Edit </a>
+						      		<a href="{{route('sellers.edit',$seller->id_seller)}}" class="btn btn-sm btn-primary"> Edit </a>
 
 						      		
 						      	    	
-									 {!! Form::open(['route' => ['products.destroy', $product->id_product],'method'=>'DELETE']) !!}
+									 {!! Form::open(['route' => ['sellers.destroy', $seller->id_seller],'method'=>'DELETE']) !!}
 
 									 <button class="btn btn-sm btn-danger">Delete</button>
 
@@ -72,13 +78,14 @@
 
 			  </tbody>
 			</table>
+		</div>
 
 		
 
 		</div>
-		<div class="mx-auto d-block">
+		<div class="mx-auto d-block col-lg-12 text-center">
 
-			{{$products->render()}}
+			{{$sellers->render()}}
 
 		</div>
 	</div>

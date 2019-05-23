@@ -37,12 +37,15 @@ class CreateProductsTable extends Migration
             //Relaciones entre tablas
 
             $table->foreign('category_id')->references('id_category')->on('categories')
+            ->onDelete('cascade')
             ->onUpdate('cascade');
 
             $table->foreign('user_id')->references('id_user')->on('users')
+            ->onDelete('cascade')
             ->onUpdate('cascade');
 
             $table->foreign('seller_id')->references('id_seller')->on('sellers')
+            ->onDelete('cascade')
             ->onUpdate('cascade');
 
 

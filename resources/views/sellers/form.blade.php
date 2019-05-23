@@ -1,119 +1,105 @@
 
-<div class="container">
+<div class="container" style="margin-top: 30px;">
 <!-- Campo oculto el cual captura automaticamente el user_id del usuario que esta logeado--> 
 
 
 
+<div class="row">
 
-<!-- Lista de Categorias -->
-
-<div class="form-group">
-	{{ Form::label('category_id', 'Categorias') }}
-	{{ Form::select('category_id', $categories , null,['class' => 'form-control']) }}
-</div>
+	<div class="col-lg6 col-md-6">
 
 <!-- Nombre del Producto -->
-
 <div class="form-group">
-	{{ Form::label('name', 'Nombre del Producto') }}
+	{{ Form::label('name', 'Nombre del Seller') }}
 	{{ Form::text('name', null , ['class' => 'form-control', 'id'=>'name']) }}
 </div>
 
-<!-- Slug o URL amigable -->
 
+<!-- Slug o URL amigable -->
 <div class="form-group">
-	{{ Form::label('slug', 'URL') }}
+	{{ Form::label('slug', 'Slug') }}
 	{{ Form::text('slug', null , ['class' => 'form-control', 'id'=>'slug']) }}
 </div>
 
-<!-- Precio -->
 
+<!-- Email -->
 <div class="form-group">
-	{{ Form::label('price', 'Precio') }}
-	{{ Form::text('price', null , ['class' => 'form-control', 'id'=>'price']) }}
+	{{ Form::label('email', 'Email') }}
+	{{ Form::text('email', null , ['class' => 'form-control', 'id'=>'email']) }}
 </div>
 
-<!-- Stock -->
 
+<!-- Nombre Comercial -->
 <div class="form-group">
-	{{ Form::label('stock', 'Stock') }}
-	{{ Form::text('stock', null , ['class' => 'form-control', 'id'=>'stock']) }}
+	{{ Form::label('commercial_name', 'Commercial Name') }}
+	{{ Form::text('commercial_name', null , ['class' => 'form-control', 'id'=>'commercial_name']) }}
 </div>
 
 
 <!-- Descripcion del Producto  -->
 <div class="form-group">
-	{{ Form::label('description', 'Descripcion') }}
-	{{ Form::textarea('description', null , ['class' => 'form-control', 'id'=>'body', 'rows' => '4']) }}
+	{{ Form::label('description', 'Description') }}
+	{{ Form::textarea('description', null , ['class' => 'form-control', 'id'=>'description', 'rows' => '2']) }}
 </div>
+
+
+
+</div>
+
+<div class="col-lg6 col-md-6">
 
 <!-- Bullets del Producto  -->
 <div class="form-group">
-	{{ Form::label('bullets', 'Bullets del Producto') }}
-	{{ Form::textarea('bullets', null , ['class' => 'form-control', 'id'=>'bullets', 'rows' => '3']) }}
+	{{ Form::label('rif', 'RIF') }}
+	{{ Form::text('rif', null , ['class' => 'form-control', 'id'=>'rif']) }}
 </div>
 
-
-<!-- SKU -->
-@if(Request::url() == route('products.create')) 
+<!-- Direcicon / Address -->
 <div class="form-group">
-	{{ Form::label('SKU', 'SKU') }}
-	{{ Form::text('SKU', null, ['class' => 'form-control', 'id'=>'SKU']) }}
+	{{ Form::label('address', 'Address') }}
+	{{ Form::text('address', null, ['class' => 'form-control', 'id'=>'address']) }}
 </div>
-@else
-<fieldset disabled>
+
+
+<!-- Persona de contacto -->
 <div class="form-group">
-	{{ Form::label('SKU', 'SKU') }}
-	{{ Form::text('SKU', null, ['class' => 'form-control', 'id'=>'SKU']) }}
+	{{ Form::label('manager', 'Manager') }}
+	{{ Form::text('manager', null, ['class' => 'form-control', 'id'=>'manager']) }}
 </div>
-</fieldset>
-@endif
 
-<!-- Status  -->
+
+<!--  Numero de telefono -->
 <div class="form-group">
-	{{ Form::label('status', 'Status: ') }}
-	<label>
-	{{ Form::radio('status', '1') }} Active
-	</label>
-	<label>
-	{{ Form::radio('status', '0') }} Deactive
-	</label>
+	{{ Form::label('bank_account', 'Phone Number') }}
+	{{ Form::text('phone_number', null, ['class' => 'form-control', 'id'=>'phone_number']) }}
 </div>
 
 
-<!-- Seller -->
+<!-- Bank Account -->
 <div class="form-group">
-	{{ Form::label('seller_id', 'Seller') }}
-	{{ Form::select('seller_id', $sellers , null,['class' => 'form-control']) }}
+	{{ Form::label('bank_account', 'Bank Account') }}
+	{{ Form::text('bank_account', null, ['class' => 'form-control', 'id'=>'phone_number']) }}
 </div>
-
-
-
 
 
 <!-- Imagen -->
 <div class="form-group">
-	{{ Form::label('photo_1', 'Imagen 1') }}
-	{{ Form::file('photo_1') }}
+	{{ Form::label('company_logo', 'Company Logo') }}
+	{{ Form::file('company_logo') }}
 </div>
 
-<!-- Imagen -->
-<div class="form-group">
-	{{ Form::label('photo_2', 'Imagen 2') }}
-	{{ Form::file('photo_2') }}
-</div>
 
-<!-- Imagen -->
-<div class="form-group">
-	{{ Form::label('photo_3', 'Imagen 3') }}
-	{{ Form::file('photo_3') }}
-</div>
 
+</div>
+</div>
 
 <!-- Boton para cargar información -->
-<div>
-	{{ Form::submit('Guardar', ['class' => 'btn btn-sm btn-primary']) }}
+
+<div class="card-footer">
+	{{ Form::submit('Guardar', ['class' => 'btn btn-primary mx-auto d-block btn-lg']) }}
 </div>
+
+
 
 
 </div>
