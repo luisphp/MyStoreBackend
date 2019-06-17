@@ -83,7 +83,9 @@
 		
 
 		</div>
-		<div class="mx-auto d-block col-lg-12 text-center">
+		<br>
+
+		<div class="mx-auto d-block col-lg-2 text-center">
 
 			{{$sellers->render()}}
 

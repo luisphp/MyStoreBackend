@@ -8,7 +8,9 @@
 
 		<h2> Categories <span class="pull-right"> <a role="button" class="btn btn-primary float-right" href="{{ route('categories.create') }}"> Create </a> </span> </h2>
 
-		<table class="table table-responsive-md" style = "margin: 30px">
+		<div class="card">
+
+		<table class="table table-responsive-md text-center table-hover">
 				  <thead>
 				    <tr>
 				      <th scope="col">id_category</th>
@@ -69,7 +71,8 @@
 		
 
 		</div>
-		<div class="mx-auto d-block">
+		<br>
+		<div class="mx-auto d-block col-md-2">
 
 			{{$categories->render()}}
 
