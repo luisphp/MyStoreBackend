@@ -21,6 +21,8 @@ Route::resource('sellers', 'SellerController');
 
 Route::resource('categories', 'CategoryController');
 
+Route::resource('campaigns', 'CampaignController');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

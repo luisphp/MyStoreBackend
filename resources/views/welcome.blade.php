@@ -94,7 +94,7 @@
                     <a href="index.php/categories">Categories</a>
                     <a href="index.php/orders">Orders</a>
                     <a href="index.php/customers">Customers</a>
-                    <a href="index.php/campaings">Campaings</a>
+                    <a href="index.php/campaigns">Campaings</a>
                     <a href="https://www.github.com/luisphp" target="new">GitHub Luis Hurtado</a>
                 </div>
             </div>
