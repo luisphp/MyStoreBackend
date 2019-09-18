@@ -15,13 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('products', 'ProductController');
 
-Route::resource('sellers', 'SellerController');
 
-Route::resource('categories', 'CategoryController');
+Route::resource('nextbigger', 'NextBiggerController');
 
-Route::resource('campaigns', 'CampaignController');
+
+
 
 Auth::routes();
 
