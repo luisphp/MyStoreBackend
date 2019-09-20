@@ -151,5 +151,7 @@ class ProductController extends Controller
         Product::find($id)->delete();
 
         return back()->with('info', 'Producto '. $name[0].' eliminada correctamente' );
+
+        //Branch: Fix.
     }
 }
